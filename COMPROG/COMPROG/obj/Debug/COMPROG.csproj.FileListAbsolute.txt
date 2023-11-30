@@ -1,0 +1,21 @@
+C:\Users\student\Desktop\Roshan Santarin\COMPROG\COMPROG\bin\Debug\COMPROG.exe.config
+C:\Users\student\Desktop\Roshan Santarin\COMPROG\COMPROG\bin\Debug\COMPROG.exe
+C:\Users\student\Desktop\Roshan Santarin\COMPROG\COMPROG\bin\Debug\COMPROG.pdb
+C:\Users\student\Desktop\Roshan Santarin\COMPROG\COMPROG\obj\Debug\COMPROG.csprojAssemblyReference.cache
+C:\Users\student\Desktop\Roshan Santarin\COMPROG\COMPROG\obj\Debug\COMPROG.csproj.CoreCompileInputs.cache
+C:\Users\student\Desktop\Roshan Santarin\COMPROG\COMPROG\obj\Debug\COMPROG.exe
+C:\Users\student\Desktop\Roshan Santarin\COMPROG\COMPROG\obj\Debug\COMPROG.pdb
+E:\COMPROG\COMPROG\bin\Debug\COMPROG.exe.config
+E:\COMPROG\COMPROG\bin\Debug\COMPROG.exe
+E:\COMPROG\COMPROG\bin\Debug\COMPROG.pdb
+E:\COMPROG\COMPROG\obj\Debug\COMPROG.csprojAssemblyReference.cache
+E:\COMPROG\COMPROG\obj\Debug\COMPROG.csproj.CoreCompileInputs.cache
+E:\COMPROG\COMPROG\obj\Debug\COMPROG.exe
+E:\COMPROG\COMPROG\obj\Debug\COMPROG.pdb
+D:\COMPROG\COMPROG\bin\Debug\COMPROG.exe.config
+D:\COMPROG\COMPROG\bin\Debug\COMPROG.exe
+D:\COMPROG\COMPROG\bin\Debug\COMPROG.pdb
+D:\COMPROG\COMPROG\obj\Debug\COMPROG.csprojAssemblyReference.cache
+D:\COMPROG\COMPROG\obj\Debug\COMPROG.csproj.CoreCompileInputs.cache
+D:\COMPROG\COMPROG\obj\Debug\COMPROG.exe
+D:\COMPROG\COMPROG\obj\Debug\COMPROG.pdb
