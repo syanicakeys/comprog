@@ -950,7 +950,7 @@ namespace COMPROG_TEST_RUN
                 Console.WriteLine($"\nWhat do you want {name} to do?");
                 Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                 Console.Write("\n> ");
-                choice = Console.ReadLine();
+                choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
 
                 switch (choice)
