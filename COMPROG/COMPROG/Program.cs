@@ -39,16 +39,20 @@ namespace COMPROG_TEST_RUN
 
         static void Main(string[] args)
         {
-          
 
+
+            PlayGame();
+
+           
+ 
+        }
+
+        static void PlayGame()
+        {
             Introduction();
             HomeScene();
             Kalaw();
 
-           
-
-           
-            Console.ReadKey();
 
         }
 
@@ -69,6 +73,7 @@ namespace COMPROG_TEST_RUN
             Console.WriteLine("To navigate through the game, only enter \n" +
                 "the words you see in between the brackets [-----].");
             Console.WriteLine("\nIf at any point you feel like exiting the game, just type \"quit\". " );
+            Console.WriteLine("\nYou may also opt to restart the game, just type \"restart\". ");
             Console.WriteLine("\nPress any key...");
             Console.ReadKey();
             Console.Clear();
@@ -81,16 +86,58 @@ namespace COMPROG_TEST_RUN
 
             Console.WriteLine("\nPress any key...");
             Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine("Enter Klasmeyt’s name to start your adventure....");
-            Console.Write("\n> ");
-            name = Console.ReadLine().ToUpper();
-            Console.WriteLine($"\nHello Klasmeyt {name}. Goodluck on your journey to Adamson University.");
-            Console.ReadKey();
+            EnterName();
 
         }
 
-     
+        static void EnterName()
+        {
+            
+            bool isValidName = false;
+
+            while (!isValidName)
+            {
+                Console.Clear();
+                Console.WriteLine("Enter Klasmeyt’s name to start your adventure....");
+                Console.Write("\n> ");
+
+                name = Console.ReadLine().ToUpper().Trim();
+
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Enter Klasmeyt’s name to start your adventure....");
+                    Console.WriteLine("\nPlease enter a valid name.");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine($"\nAre you sure to set Klasmeyt to {name}?");
+                    Console.WriteLine("[Y] or [N]");
+                    Console.Write("\n> ");
+                    string choice = Console.ReadLine().ToUpper();
+
+                    switch (choice)
+                    {
+                        case "Y":
+                            Console.WriteLine($"\nHello Klasmeyt {name}. Good luck on your journey to Adamson University.");
+                            Console.ReadKey();
+                            isValidName = true;
+                            break;
+
+                        case "N":
+                            // Continue loop to enter name again
+                            break;
+
+                        default:
+                            Console.WriteLine("\nInvalid option. Try again.");
+                            Console.ReadKey();
+                            break;
+                    }
+                }
+            }
+        }
+
         static void HomeScene()
         {
             Console.Clear();
@@ -194,10 +241,10 @@ namespace COMPROG_TEST_RUN
                    $"Number of moves: {moves}");
             Console.WriteLine("\n------------------------------\n");
             Console.WriteLine("\nAs you observe your surroundings from Kalaw Avenue,\n" +
-                "2 routes are available to go to Adamson University");
+                "you noticed that there are routes that you may take to Adamson University.");
 
-            Console.WriteLine("\n[W] Go towards the Highway" +
-                "\n[A] Go left");
+            Console.WriteLine("\n[W] Go forward" +
+                "\n[A] Go left\n[D] Go right ");
             Console.Write("\n> ");
             choice = Console.ReadLine().ToUpper();
             HandleChoice(choice);
@@ -212,6 +259,12 @@ namespace COMPROG_TEST_RUN
                     moves++;
                     Riz3();
                     
+                    break;
+                case "D":
+                    
+                    Wall();
+                    ObservefrKalaw();
+
                     break;
                 default:
                     Console.WriteLine("Invalid option. Try again.");
@@ -240,32 +293,67 @@ namespace COMPROG_TEST_RUN
                 Console.Write("\n> ");
                 choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
-                switch (choice)
-                {
-                    case "W":
-                        moves++;
-                        Caught();
-                        break;
 
-                    case "A":
-                        Console.WriteLine("The area you chose is restricted. A move is added.");
-                        moves++;
-                        Console.ReadKey();
-                        Observe();
-                        break;
-                    case "S":
-                       moves++;
-                        Highway3();
-                       break;
-                    case "D":
-                        moves++;
-                        UN2();
-                       break;
-                    default:
-                        Console.WriteLine("Invalid option. Try again.");
-                        Console.ReadKey();
-                        Observe();
-                        break;
+                if (Hwy3 == true)
+                {
+                    switch (choice)
+                    {
+                        case "W":
+                            moves++;
+                            Entrance();
+                            break;
+
+                        case "A":
+                            Console.WriteLine("The area you chose is restricted. A move is added.");
+                            moves++;
+                            Console.ReadKey();
+                            Observe();
+                            break;
+                        case "S":
+                            moves++;
+                            Highway3();
+                            break;
+                        case "D":
+                            moves++;
+                            UN2();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Try again.");
+                            Console.ReadKey();
+                            Observe();
+                            break;
+                    }
+                }
+               
+                else
+                {
+                    switch (choice)
+                    {
+                        case "W":
+                            moves++;
+                            Entrance();
+                            break;
+
+                        case "A":
+                            Console.WriteLine("The area you chose is restricted. A move is added.");
+                            moves++;
+                            Console.ReadKey();
+                            Observe();
+                            break;
+                        case "S":
+                            moves++;
+                            Highway3();
+                            break;
+                        case "D":
+                            moves++;
+                            UN2();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Try again.");
+                            Console.ReadKey();
+                            Observe();
+                            break;
+                    }
                 }
 
                
@@ -457,7 +545,7 @@ namespace COMPROG_TEST_RUN
                     $"Sanity: {sanity}%\n" +
                     $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
-                Console.WriteLine("\nKlasmeyt arrives at the entrance of the walkway,\n" +
+                Console.WriteLine($"\n{name} arrives at the entrance of the walkway,\n" +
                     "a crucial path towards Adamson University.\n" +
                     "However, an imposing security guard stands at the gate, checking IDs.");
                 Console.WriteLine("\nGuard: Do you have your ID?");
@@ -478,6 +566,7 @@ namespace COMPROG_TEST_RUN
 
                 else if (choice == "give")
                 {
+                    Console.WriteLine("\nGuard: This matches the one on the system. You may go.");
                     moves++;
                     Walkway2();
                 }
@@ -500,8 +589,8 @@ namespace COMPROG_TEST_RUN
                     $"Sanity: {sanity}%\n" +
                     $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
-                Console.WriteLine($"\n {name} is now in Walkway Entrance.");
-                Console.WriteLine($"\n What do you want {name} to do?");
+                Console.WriteLine($"\n{name} is now in Walkway Entrance.");
+                Console.WriteLine($"\nWhat do you want {name} to do?");
                 Console.WriteLine("\n[W] Go forward \n[A] Go left\n[S] Go backward\n[D] Go right");
 
                 Console.Write("\n> ");
@@ -552,7 +641,7 @@ namespace COMPROG_TEST_RUN
                 Console.Clear();
                 sanity += 10;
                 CheckSanity();
-                Console.WriteLine($"Location: SV Chapel" +
+                Console.WriteLine($"Location: SV Chapel\n" +
                             $"Sanity: {sanity}%\n" +
                             $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -605,15 +694,15 @@ namespace COMPROG_TEST_RUN
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: SV Chapel" +
+                Console.WriteLine($"Location: SV Chapel\n" +
                             $"Sanity: {sanity}%\n" +
                             $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
                 Console.WriteLine($"{name} is now in SV Chapel.");
                 Console.WriteLine($"What do you want {name} to do?");
-                Console.WriteLine("[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
+                Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                 Console.Write("\n> ");
-                choice = Console.ReadLine();
+                choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
 
                 switch (choice)
@@ -662,7 +751,7 @@ namespace COMPROG_TEST_RUN
                             $"\nSanity: {sanity}%\n" +
                             $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
-                Console.WriteLine($"\n{name} is now  beside TUP.");
+                Console.WriteLine($"\n{name} is now  beside TUP. They feel ecstatic");
                 Console.WriteLine($"\nWhat do you want {name} to do?");
                 Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                 Console.Write("\n> ");
@@ -672,9 +761,7 @@ namespace COMPROG_TEST_RUN
                 switch (choice)
                 {
                     case "W":
-                        Console.WriteLine($"\n{name} just went farther. Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
+                        Wall();
                         tup();
                         break;
                     case "A":
@@ -721,15 +808,13 @@ namespace COMPROG_TEST_RUN
                 switch (choice)
                 {
                     case "W":
-                        Console.WriteLine($"\n{name} just went farther. Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
+                        Wall();
                         tup();
                         break;
                     case "A":
                         Console.WriteLine($"\n{name} just went farther. Try again");
                         Console.ReadKey();
-                        sanity -= 1;
+                        Wall();
                         tup();
                         break;
                     case "S":
@@ -765,7 +850,7 @@ namespace COMPROG_TEST_RUN
             Console.WriteLine("\n------------------------------\n");
             Console.WriteLine($"{name} is in Ayala Blvd.");
             Console.WriteLine($"What do you want {name} to do?");
-            Console.WriteLine("[W] Go forward \n[S] Go backward\n[D] Go right");
+            Console.WriteLine("\n[W] Go forward \n[S] Go backward\n[D] Go right");
             Console.Write("\n> ");
             choice = Console.ReadLine().ToUpper();
             HandleChoice(choice);
@@ -826,10 +911,7 @@ namespace COMPROG_TEST_RUN
                        
                         break;
                     case "A":
-                        Console.WriteLine($"\n{name} just went farther. Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
-                        
+                        Wall();
                         Ayala2();
                         break;
                     case "S":
@@ -940,9 +1022,8 @@ namespace COMPROG_TEST_RUN
 
                         break;
                     case "A":
-                        Console.WriteLine($"\n{name} just went farther. Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
+                        Wall();
+                        ayalarizal = true;
                         Ayala2();
                         break;
                     case "S":
@@ -990,10 +1071,8 @@ namespace COMPROG_TEST_RUN
 
                         break;
                     case "A":
-                        Console.WriteLine($"\n{name} just went farther. Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
-
+                        Wall();
+                        Ayala3();
                         break;
                     case "S":
                         moves++;
@@ -1023,7 +1102,7 @@ namespace COMPROG_TEST_RUN
                  $"Sanity: {sanity}%\n" +
                  $"Number of moves: {moves}");
             Console.WriteLine("\n------------------------------\n");
-            Console.WriteLine($"\n {name} is now in Walkway");
+            Console.WriteLine($"\n{name} is now in Walkway");
             
             Console.WriteLine($"\nWhat do you want {name} to do?");
 
@@ -1077,7 +1156,7 @@ namespace COMPROG_TEST_RUN
                  $"Number of moves: {moves}");
             Console.WriteLine("\n------------------------------\n");
 
-            Console.WriteLine($"\n {name} is now in Walkway");
+            Console.WriteLine($"\n{name} is now in Walkway");
             Console.WriteLine("\n[W] Go forward \n[A] Go left\n[S] Go backward\n[D] Go right");
             Console.Write("\n> ");
             choice = Console.ReadLine().ToUpper();
@@ -1139,10 +1218,8 @@ namespace COMPROG_TEST_RUN
                     Ayala3();
                     break;
                 case "A": //sanity -1
-                    Console.WriteLine($"\n{name} just went farther. Try again");
-                    Console.ReadKey();
-                    sanity -= 1;
-                    
+                    Wall();
+        
                     Highway1();
                     break;
                 case "S":
@@ -1180,7 +1257,7 @@ namespace COMPROG_TEST_RUN
                        $"Sanity: {sanity}%\n" +
                        $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
-                Console.WriteLine($"\n {name} is standing beside the road of the highway.");
+                Console.WriteLine($"\n{name} is standing beside the road of the highway.");
                 Console.WriteLine("\n[W] Go forward \n[A] Go left\n[S] Go backward\n[D] Go right");
                 Console.Write("\n> ");
                 choice = Console.ReadLine().ToUpper();
@@ -1233,10 +1310,10 @@ namespace COMPROG_TEST_RUN
                        $"Sanity: {sanity}%\n" +
                        $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
-                Console.WriteLine($"\n {name} is standing beside the road of the highway.");
+                Console.WriteLine($"\n{name} is standing beside the road of the highway.");
                 Console.WriteLine($"\nWhen they suddenly hear their name being yelled.");
                 Console.WriteLine($"\n???: {name}! {name}! {name}!");
-                Console.WriteLine($"\n {name}  turned to look, and it's their....");
+                Console.WriteLine($"\n{name}  turned to look, and it's their....");
                 Console.WriteLine("\nPress any key...");
                 Console.ReadKey();
                 Console.Clear();
@@ -1335,11 +1412,11 @@ namespace COMPROG_TEST_RUN
         {
             Console.Clear();
             CheckSanity();
-            Console.WriteLine($"Location: Highway\n" +
+            Console.WriteLine($"Location: Highway" +
                   $"\nSanity: {sanity}%\n" +
                   $"Number of moves: {moves}");
             Console.WriteLine("\n------------------------------\n");
-            Console.WriteLine($"\n {name} is standing beside the road of the highway.");
+            Console.WriteLine($"\n{name} is standing beside the road of the highway.");
             Console.WriteLine("\n[W] Go forward \n[A] Go left\n[S] Go backward\n[D] Go right");
             Console.Write("\n> ");
             choice = Console.ReadLine().ToUpper();
@@ -1348,9 +1425,7 @@ namespace COMPROG_TEST_RUN
             switch (choice)
             {
                 case "W":
-                    Console.WriteLine($"{name} just went farther. Try again.");
-                    Console.ReadKey();
-                    sanity -= 1;
+                    Wall();
                     Highway5();
                     break;
                 case "A":
@@ -1430,10 +1505,10 @@ namespace COMPROG_TEST_RUN
                     $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
                 Console.WriteLine($"\n{name} crossed over to United Nations.");
-                Console.WriteLine("\nPress enter..");
+                Console.WriteLine("\nPress any key...");
                 Console.ReadKey();
                 Console.Clear();
-                sanity -= 35;
+                sanity -= 20;
                 CheckSanity();
                 Console.WriteLine($"Location: United Nations\n" +
                     $"Sanity: {sanity}%\n" +
@@ -1444,7 +1519,7 @@ namespace COMPROG_TEST_RUN
 
                 Console.WriteLine($"\nWhat do you want {name} to do?");
 
-                Console.WriteLine("[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
+                Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                 Console.Write("\n> ");
                 choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
@@ -1457,9 +1532,9 @@ namespace COMPROG_TEST_RUN
                         UN1();
                         break;
                     case "A":
-                        Wall();
+                        moves++;
                         poop = true;
-                        UN2();
+                        Entrance();
                         break;
                     case "S":
                         moves++;
@@ -1467,17 +1542,14 @@ namespace COMPROG_TEST_RUN
                         Highway4();
                         break;
                     case "D":
-                        Console.WriteLine("You just went away from Adamson. Your sanity decreased.");
-                        Console.WriteLine("Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
-                        
+                        Wall();
                         poop = true;
                         UN2();
                         Console.ReadKey();
                         break;
                     default:
                         Console.WriteLine("Invalid option. Try again");
+                        poop = true;
                         Console.ReadKey();
                         UN2();
                         break;
@@ -1501,7 +1573,7 @@ namespace COMPROG_TEST_RUN
 
                 Console.WriteLine($"\nWhat do you want {name} to do?");
 
-                Console.WriteLine("[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
+                Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                 Console.Write("\n> ");
                 choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
@@ -1514,9 +1586,9 @@ namespace COMPROG_TEST_RUN
                         UN1();
                         break;
                     case "A":
-                        Wall();
+                        moves++;
                         poop = true;
-                        UN2();
+                        Entrance();
                         break;
                     case "S":
                         moves++;
@@ -1524,11 +1596,7 @@ namespace COMPROG_TEST_RUN
                         Highway4();
                         break;
                     case "D":
-                        Console.WriteLine("You just went away from Adamson. Your sanity decreased.");
-                        Console.WriteLine("Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
-                        
+                        Wall();
                         poop = true;
                         UN2();
                         Console.ReadKey();
@@ -1551,7 +1619,7 @@ namespace COMPROG_TEST_RUN
                  $"Sanity: {sanity}%\n" +
                  $"Number of moves: {moves}");
             Console.WriteLine("\n------------------------------\n");
-            Console.WriteLine($"\n {name} is in United Nations.");
+            Console.WriteLine($"\n{name} is in United Nations.");
             Console.WriteLine("\n[W] Go forward \n[A] Go left\n[S] Go backward\n[D] Go right");
             Console.Write("\n> ");
             choice = Console.ReadLine().ToUpper();
@@ -1576,9 +1644,7 @@ namespace COMPROG_TEST_RUN
                     UN2();
                     break;
                 case "D":
-                    Console.WriteLine($"\n{name} just went farther. Your sanity decreased. Try again");
-                    sanity -= 1;
-                    Console.ReadKey();
+                    Wall();
                     UNExt();
                     break;
                 default:
@@ -1591,15 +1657,17 @@ namespace COMPROG_TEST_RUN
 
             static void Gated()
         {
+            Console.Clear();
+            CheckSanity();
             Console.WriteLine($"Location: Gated Area" +
                         $"Sanity: {sanity}%\n" +
                         $"Number of moves: {moves}");
             Console.WriteLine("\n------------------------------\n");
-            Console.WriteLine($"\n {name} is in a Gated area");
+            Console.WriteLine($"\n{name} is in a Gated area");
 
             Console.WriteLine($"\nWhat do you want {name} to do?");
 
-            Console.WriteLine("[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
+            Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
             Console.Write("\n> ");
             choice = Console.ReadLine().ToUpper();
             HandleChoice(choice);
@@ -1608,24 +1676,17 @@ namespace COMPROG_TEST_RUN
             {
                 case "W":
                     Wall();
-                    Console.ReadKey();
-                    moves++;
+
                     Gated();
 
                     break;
                 case "A":
                     Wall();
-                    Console.ReadKey();
-                    moves++;
                     Gated();
                     break;
                 case "S":
                     Wall();
-                    Console.ReadKey();
-                    moves++;
                     Gated();
-
-
                     break;
                 case "D": //valid
                     SVChapel();
@@ -1657,7 +1718,7 @@ namespace COMPROG_TEST_RUN
                     $"This is nowhere near Adamson!");
 
                 Console.WriteLine($"\nWhat do you want {name} to do?");
-                Console.WriteLine("[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
+                Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                 Console.Write("\n> ");
                 choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
@@ -1670,15 +1731,11 @@ namespace COMPROG_TEST_RUN
                         Highway1();
                         break;
                     case "A":
-                        Console.WriteLine($"\n{name} just went farther. Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
+                        Wall();
                         Riz1();
                         break;
                     case "S":
-                        Console.WriteLine($"\n{name} just went farther. Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
+                        Wall();
                         Riz1();
                         break;
                     case "D":
@@ -1699,7 +1756,7 @@ namespace COMPROG_TEST_RUN
                             $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
                 Console.WriteLine($"\nWhat do you want {name} to do?");
-                Console.WriteLine("[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
+                Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                 Console.Write("\n> ");
                 choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
@@ -1712,15 +1769,11 @@ namespace COMPROG_TEST_RUN
                         Highway1();
                         break;
                     case "A":
-                        Console.WriteLine($"\n{name} just went farther. Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
+                        Wall();
                         Riz1();
                         break;
                     case "S":
-                        Console.WriteLine($"\n{name} just went farther. Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
+                        Wall();
                         Riz1();
                         break;
                     case "D":
@@ -1752,7 +1805,7 @@ namespace COMPROG_TEST_RUN
                 Console.WriteLine($"\n???: Hello! Are you lost?");
                 Console.WriteLine($"\n{name}: Yes, can you help me?");
                 Console.WriteLine($"\n???: Well, just take the right path, you'll be in Adamson.");
-                Console.WriteLine($"\n: Thank you so much!");
+                Console.WriteLine($"\n{name}: Thank you so much!");
                 Console.ReadKey();
                 Console.Clear();
                 CheckSanity();
@@ -1799,7 +1852,7 @@ namespace COMPROG_TEST_RUN
                             $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
                 Console.WriteLine($"\nWhat do you want {name} to do?");
-                Console.WriteLine("[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
+                Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                 Console.Write("\n> ");
                 choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
@@ -1815,9 +1868,7 @@ namespace COMPROG_TEST_RUN
                         Riz1();
                         break;
                     case "S":
-                        Console.WriteLine($"\n{name} just went farther. Try again");
-                        Console.ReadKey();
-                        sanity -= 1;
+                        Wall();
                         Riz2();
                         break;
                     case "D":
@@ -1837,10 +1888,10 @@ namespace COMPROG_TEST_RUN
                         $"Number of moves: {moves}");
             Console.WriteLine("\n------------------------------\n");
             Console.WriteLine($"\n{name} arrived at Rizal Park, they feel patriotic");
-            Console.WriteLine($"\n{name} its not the time to feel patriotic. I need to go to school!");
+            Console.WriteLine($"\n{name} it's not the time to feel patriotic. I need to go to school!");
            
             Console.WriteLine($"\nWhat do you want {name} to do?");
-            Console.WriteLine("[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
+            Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
             Console.Write("\n> ");
             choice = Console.ReadLine().ToUpper();
             HandleChoice(choice);
@@ -1878,7 +1929,7 @@ namespace COMPROG_TEST_RUN
                 DisplaySecretEnding();
             }
 
-            else if (moves <=10 && sanity >= 20)
+            else if (moves <=12 && sanity >= 20)
             {
                 Console.Clear();
                 CheckSanity();
@@ -1901,9 +1952,7 @@ namespace COMPROG_TEST_RUN
 
                 if (choice == "RESTART")
                 {
-                    sanity = 80;
-                    Console.ReadKey();
-                    Introduction();
+                    RestartGame();
                 }
 
 
@@ -1913,7 +1962,7 @@ namespace COMPROG_TEST_RUN
                 }
             }
 
-            else if (moves > 10 && sanity >= 20)
+            else if (moves > 12 && sanity >= 20)
             {
                 Console.Clear();
                 CheckSanity();
@@ -1934,9 +1983,7 @@ namespace COMPROG_TEST_RUN
 
                 if (choice == "RESTART")
                 {
-                    sanity = 80;
-                    Console.ReadKey();
-                    Introduction();
+                    RestartGame();
                 }
 
 
@@ -1950,8 +1997,9 @@ namespace COMPROG_TEST_RUN
 
         static void Wall()
         {
-            Console.WriteLine("A wall blocks this area, you cannot enter. A move is added");
+            Console.WriteLine("You cannot enter the premises. A move is added");
             Console.ReadKey();
+            sanity -= 1;
             moves++;
         }
 
@@ -1964,6 +2012,11 @@ namespace COMPROG_TEST_RUN
             if (choice == "quit" || choice == "QUIT")
             {
                 Environment.Exit(0);
+            }
+
+           else if(choice == "restart" || choice == "RESTART")
+            {
+                RestartGame();
             }
 
         }
@@ -1997,10 +2050,7 @@ namespace COMPROG_TEST_RUN
 
             if (choice == "RESTART")
             {
-                sanity = 80;
-                playerchoice.Clear();
-                Console.Clear();
-                Introduction();
+                RestartGame();
             }
 
 
@@ -2008,6 +2058,27 @@ namespace COMPROG_TEST_RUN
             {
                 Environment.Exit(0);
             }
+        }
+
+        static void RestartGame()
+        {
+            playerchoice.Clear();
+            sanity = 80;
+            moves = 0;
+            EWScene = false;
+            TUPSchool = false;
+            KalawScene = false;
+            ObserveScene = false;
+            sane = false;
+            chapel = false;
+            ayala = false;
+            ayalarizal = false;
+            poop = false;
+            rpath = false;
+            rizz = false;
+            Hwy3 = false;
+            Console.Clear();
+            PlayGame();
         }
         static void CheckSanity()
         {
@@ -2030,10 +2101,8 @@ namespace COMPROG_TEST_RUN
 
                 if (choice == "RESTART")
                 {
-                    playerchoice.Clear();
-                    sanity = 80;
-                    Console.Clear();
-                    HomeScene();
+
+                    RestartGame();
                 }
                 else
                 {
