@@ -468,7 +468,7 @@ namespace COMPROG_TEST_RUN
                     $"Sanity: {sanity}%\n" +
                     $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
-                Console.WriteLine("\nKlasmeyt arrives at the entrance of the walkway,\n" +
+                Console.WriteLine($"\n{name}arrives at the entrance of the walkway,\n" +
                     "a crucial path towards Adamson University.\n" +
                     "However, an imposing security guard stands at the gate, checking IDs.");
                 Console.WriteLine("\nGuard: Hold on! You are wearing an incomplete uniform, where is your ID?");
@@ -1024,7 +1024,7 @@ namespace COMPROG_TEST_RUN
                     case "A":
                         Wall();
                         ayalarizal = true;
-                        Ayala2();
+                        Ayala3();
                         break;
                     case "S":
                         moves++;
@@ -1035,7 +1035,7 @@ namespace COMPROG_TEST_RUN
                     case "D":
                         moves++;
                         Console.WriteLine($"{name} just trespassed! A move is added. Try again.");
-                        Ayala2();
+                        Ayala3();
                         break;
                     default:
                         Console.WriteLine("Invalid option. Try again.");
@@ -1053,9 +1053,9 @@ namespace COMPROG_TEST_RUN
                 Console.WriteLine($"Location: Ayala Blvd.\n" +
                     $"Sanity: {sanity}%\n" +
                     $"Number of moves: {moves}");
-                Console.WriteLine($"\n{name} is  in Ayala Blvd.");
+              
                 Console.WriteLine("\n------------------------------\n");
-
+                Console.WriteLine($"\n{name} is  in Ayala Blvd.");
                 Console.WriteLine($"\nWhat do you want {name} to do?");
 
                 Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
@@ -1806,6 +1806,7 @@ namespace COMPROG_TEST_RUN
                 Console.WriteLine($"\n{name}: Yes, can you help me?");
                 Console.WriteLine($"\n???: Well, just take the right path, you'll be in Adamson.");
                 Console.WriteLine($"\n{name}: Thank you so much!");
+                Console.WriteLine("\nPress any key...");
                 Console.ReadKey();
                 Console.Clear();
                 CheckSanity();
@@ -1814,7 +1815,7 @@ namespace COMPROG_TEST_RUN
                             $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
                 Console.WriteLine($"\n{name} continued on walking, but suddenly stopped.");
-                Console.WriteLine($"They suddenly saw another path, which confuses them from the current path,\n" +
+                Console.WriteLine($"They suddenly saw another path, which confuses them from the current path\n" +
                     $"they are walking at.");
                 Console.WriteLine($"\n{name}: Is this the right path? or do I take the right path?");
 
@@ -1906,6 +1907,11 @@ namespace COMPROG_TEST_RUN
                 case "A":
                     moves++;
                     Riz2();
+                    break;
+
+                case "S":
+                    Wall();
+                    Riz3();
                     break;
                 case "D":
                     moves++;
