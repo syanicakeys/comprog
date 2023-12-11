@@ -445,8 +445,9 @@ namespace COMPROG_TEST_RUN
             Console.WriteLine("\n------------------------------\n");
            
             
-                Console.WriteLine($"\n{name} didn't persuade the guard enough. Try again.");
+                Console.WriteLine($"\n{name} didn't persuade the guard enough. It seems like you need to get your ID, but where?");
                 Console.ReadKey();
+                sanity -= 5;
                 Entrance();
     
 
@@ -516,7 +517,7 @@ namespace COMPROG_TEST_RUN
 
                 if (choice == "search")
                 {
-                    moves++;
+                 
                     Observe();
 
                 }
@@ -559,7 +560,6 @@ namespace COMPROG_TEST_RUN
                 if (choice == "search")
                 {
                     Hwy3 = true; 
-                    moves++;
                     Observe();
 
                 }
@@ -777,7 +777,7 @@ namespace COMPROG_TEST_RUN
                     case "D":
                         moves++;
                         TUPSchool = true;
-                        Adamson();
+                        Adamson().GetAwaiter().GetResult(); ;
                         break;
                     default:
                         Console.WriteLine("Invalid option. Try again.");
@@ -794,7 +794,7 @@ namespace COMPROG_TEST_RUN
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: SV Chapel" +
+                Console.WriteLine($"Location: SV Chapel\n" +
                             $"Sanity: {sanity}%\n" +
                             $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -826,7 +826,7 @@ namespace COMPROG_TEST_RUN
                     case "D":
                         moves++;
                         TUPSchool = true;
-                        Adamson();
+                        Adamson().GetAwaiter().GetResult(); ;
                         break;
                     default:
                         Console.WriteLine("Invalid option. Try again.");
@@ -1430,7 +1430,7 @@ namespace COMPROG_TEST_RUN
                     break;
                 case "A":
                     moves++;
-                    Adamson();
+                    Adamson().GetAwaiter().GetResult(); 
                     break;
                 case "S":
                     moves++;
@@ -1926,12 +1926,20 @@ namespace COMPROG_TEST_RUN
 
             }
         }
-        static void Adamson()
+        static void Effect(string text)
+        {
+            foreach (char c in text)
+            {
+                Console.Write(c);
+               Task.Delay(60).Wait(); // Adjust the delay time as desired
+            }
+        }
+        static async Task Adamson()
         {
             
             if (IsCorrectSequence(playerchoice, unlockeaster))
             {
-                Console.Clear();
+
                 DisplaySecretEnding();
             }
 
@@ -1943,16 +1951,21 @@ namespace COMPROG_TEST_RUN
                             $"\nSanity: {sanity}%\n" +
                             $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
-                Console.WriteLine($"\n{name} arrives at the Gate of Adamson University and entered");
-                Console.WriteLine($"\n{name} walked up the stairs and arrived at their class");
-                Console.WriteLine($"\nTheir classmates greeted them, and {name} sat down just in time\n" +
-                    $"as the bell rang and their professor entering the room, with papers on their hand");
-
-                Console.WriteLine("Prof: Good morning everyone! Let's start the exam.");
+               Effect($"\n\n{name} arrives at the Gate of Adamson University and entered.");
+                await Task.Delay(1000);
+               Effect($"\n\n{name} walked up the stairs and arrived at their class.");
+                await Task.Delay(1000);
+                Effect($"\n\nTheir classmates greeted them, and {name} sat down just in time as \n" +
+                    $"the bell rang and their professor entering the room, with papers on their hand.");
+                await Task.Delay(1000);
+                Effect("\n\nProf: Good morning everyone! Let's start the exam.\n");
+                await Task.Delay(1000);
+                Console.WriteLine("\nPress any key...");
                 Console.ReadKey();
                 Console.Clear();
-
-                Console.WriteLine("\nType restart if you would like to try again.");
+                Effect($"{name} arrived on time to Adamson University\n");
+                Console.WriteLine("\nType restart if you would like to play again.");
+                Console.Write("\n> ");
                 choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
 
@@ -1976,14 +1989,19 @@ namespace COMPROG_TEST_RUN
                            $"\nSanity: {sanity}%\n" +
                            $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
-                Console.WriteLine($"\n{name} arrives at the Gate of Adamson University as the bell rang");
-                Console.WriteLine($"\n{name} entered, walked up the stairs and arrived at their class late");
-
-                Console.WriteLine("Prof: You are late! You may not take your final exam");
+               Effect($"\n\n{name} arrives at the Gate of Adamson University as the bell rang");
+                await Task.Delay(1000);
+                Effect($"\n\n{name} entered, walked up the stairs and arrived at their class late");
+                await Task.Delay(1000);
+               Effect("\n\nProf: You are late! You may not take your final exam\n");
+                await Task.Delay(1000);
+                Console.WriteLine("\nPress any key...");
                 Console.ReadKey();
                 Console.Clear();
-
+                Effect($"{name} failed to arrive on time to Adamson University\n");
                 Console.WriteLine("\nType restart if you would like to try again.");
+                Console.Write("\n> ");
+           
                 choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
 
@@ -2005,7 +2023,7 @@ namespace COMPROG_TEST_RUN
         {
             Console.WriteLine("You cannot enter the premises. A move is added");
             Console.ReadKey();
-            sanity -= 1;
+            sanity -= 2;
             moves++;
         }
 
@@ -2048,9 +2066,45 @@ namespace COMPROG_TEST_RUN
 
         static void DisplaySecretEnding()
         {
-            Console.WriteLine("OMAY");
+            Console.Clear();
+            CheckSanity();
+            Console.WriteLine($"Location: Adamson" +
+                       $"\nSanity: {sanity}%\n" +
+                       $"Number of moves: {moves}");
+            Console.WriteLine("\n------------------------------\n");
+
+            Effect($"\n\n{name} arrives at school just in the nick of time.");
+            Task.Delay(1000);
+            Effect($"\n\n{name} rushes to their classroom and opened the door....");
+            Task.Delay(1500);
+            Effect("\n\nSir Paul: Ok guys, before we start our final exam, a few things lang. \n" +
+                "Attendance muna, Batumba-");
+            Task.Delay(1000);
+            Effect("\n\nClassmate: Oh, you just arrived in time. We thought you were going to be late.");
+            Effect("\n\nSir Paul: *clapping* Congratulations! Nakaabot ka pa. I was about to call your name.");
+            Task.Delay(1000);
+            sanity = 100;
+            Effect($"\n\n{name} feels relieved");
+            Task.Delay(1000);
+            Effect("\n\nSir Paul: Take a seat, we're starting the exam soon");
+            Task.Delay(1000);
+            Effect($"\n\n{name}: Yes sir!");
+            Task.Delay(1000);
+            Console.Clear();
+            CheckSanity();
+            Console.WriteLine($"Location: Adamson" +
+                       $"\nSanity: {sanity}%\n" +
+                       $"Number of moves: {moves}");
+            Console.WriteLine("\n------------------------------\n");
+
+            Effect($"\n\n{name}felt happy that your Prof congratulated you. You aced the exam.\n");
+            Task.Delay(1000);
+            Console.WriteLine("\nPress any key...");
+            Console.ReadKey();
+            Console.Clear();
+            Effect($"{name} arrived on time to Adamson University\n");
             Console.WriteLine("\nType restart if you would like to try again.");
-            Console.Write("> ");
+            Console.Write("\n> ");
             choice = Console.ReadLine().ToUpper();
             HandleChoice(choice);
 
