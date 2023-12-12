@@ -1,0 +1,16 @@
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\bin\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.exe
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\bin\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.deps.json
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\bin\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.runtimeconfig.json
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\bin\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.runtimeconfig.dev.json
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\bin\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.dll
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\bin\Debug\net5.0\ref\KLASMEYT - FAR FROM SCHOOL.dll
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\bin\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.pdb
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\obj\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.csprojAssemblyReference.cache
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\obj\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\obj\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.AssemblyInfoInputs.cache
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\obj\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.AssemblyInfo.cs
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\obj\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.csproj.CoreCompileInputs.cache
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\obj\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.dll
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\obj\Debug\net5.0\ref\KLASMEYT - FAR FROM SCHOOL.dll
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\obj\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.pdb
+C:\Users\Computer\Desktop\Computer Science\KLASMEYT - FAR FROM SCHOOL\KLASMEYT - FAR FROM SCHOOL\obj\Debug\net5.0\KLASMEYT - FAR FROM SCHOOL.genruntimeconfig.cache
