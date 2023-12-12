@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "KLASMEYT - FAR FROM SCHOOL/1.0.0": {
+        "runtime": {
+          "KLASMEYT - FAR FROM SCHOOL.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KLASMEYT - FAR FROM SCHOOL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

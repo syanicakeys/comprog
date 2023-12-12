@@ -183,7 +183,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             Task.Delay(1200);
                 FasterEffect("\nBEEP!....BEEP!...BEEP!....BEEP!");
 
-                Console.WriteLine($"\n\nStill groggy from staying u, they switched to their side and looked at their clock, stating\n" +
+                Console.WriteLine($"\n\nStill groggy from staying up, they switched to their side and looked at their clock, stating\n" +
                     $"\"6:13 AM\". OH NO! THEY SLEPT THROUGH THEIR ALARM!!");
 
                 Console.WriteLine($"\nThey have an exam, and they are running late. {name} hurriedly got ready\n" +
@@ -275,10 +275,10 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                        $"Sanity: {sanity}%\n" +
                        $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
-                Console.WriteLine("\nAs you observe your surroundings from Kalaw Avenue,\n" +
-                    "you noticed that there are routes that you may take to Adamson University.");
+            Console.WriteLine($"\nAs {name} observed their surroundings, they\n" +
+                    "noticed that they can go to 3 directions:");
 
-                Console.WriteLine("\n[W] Go forward" +
+            Console.WriteLine("\n[W] Go forward" +
                     "\n[A] Go left\n[D] Go right ");
                 Console.Write("\n> ");
                 choice = Console.ReadLine().ToUpper();
@@ -323,9 +323,9 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                     $"Sanity: {sanity}%\n" +
                     $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
-                    Console.WriteLine("\nAs you observe your surroundings, you\n" +
-                        "noticed that you can go to 4 directions:");
-                    Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
+                      Console.WriteLine($"\nAs {name} observe their surroundings, they\n" +
+                    "noticed that they have different routes that they may able to take to Adamson University.");
+                Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                     Console.Write("\n> ");
                     choice = Console.ReadLine().ToUpper();
                     HandleChoice(choice);
@@ -340,10 +340,10 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                                 break;
 
                             case "A":
-                                Console.WriteLine("The area you chose is restricted. A move is added.");
-                                moves+=2;
-                                Console.ReadKey();
-                                Observe();
+                            Console.WriteLine("The area you chose is restricted. 2 moves were added.");
+                            Console.ReadKey();
+                            moves += 2;
+                            Observe();
                                 break;
                             case "S":
                                 moves++;
@@ -371,10 +371,10 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                                 break;
 
                             case "A":
-                                Console.WriteLine("The area you chose is restricted. A move is added.");
-                            moves += 2;
+                            Console.WriteLine("The area you chose is restricted. 2 moves were added.");
                             Console.ReadKey();
-                                Observe();
+                            moves += 2;
+                            Observe();
                                 break;
                             case "S":
                                 moves++;
@@ -404,8 +404,8 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                    $"Sanity: {sanity}%\n" +
                    $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
-                    Console.WriteLine("\nAs you observe your surroundings, you\n" +
-                        "noticed that you can go to 4 directions:");
+                    Console.WriteLine($"\nAs {name} observe their surroundings, they\n" +
+                        "noticed that they can go to 4 directions:");
                     Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                     Console.Write("\n> ");
                     choice = Console.ReadLine().ToUpper();
@@ -419,10 +419,10 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                             break;
 
                         case "A":
-                            Console.WriteLine("The area you chose is restricted. A move is added.");
-                            Console.ReadKey();
-                         moves += 2;
-                            Observe();
+                        Console.WriteLine("The area you chose is restricted. 2 moves were added.");
+                        Console.ReadKey();
+                        moves += 2;
+                        Observe();
                             break;
                         case "S":
                             moves++;
@@ -448,27 +448,6 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             }
 
 
-            static void Caught()
-            {
-                Console.Clear();
-                ObserveScene = false;
-                sanity -= 5;
-                CheckSanity();
-                Console.WriteLine($"Location: Walkway Entrance\n" +
-               $"Sanity: {sanity}%\n" +
-               $"Number of moves: {moves}");
-                Console.WriteLine("\n------------------------------\n");
-                Console.WriteLine($"\n{name} continued to walk to Walkway");
-                Console.WriteLine("\nGuard: Hey! I told you you can't come here without your ID!");
-                Console.WriteLine("\nSearch for another route again..");
-                Console.ReadKey();
-                Observe();
-
-
-
-
-            }
-
 
 
             static void Persuade()
@@ -480,10 +459,11 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                      $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
 
-
-                Console.WriteLine($"\n{name} didn't persuade the guard enough. It seems like you need to get your ID, but where?");
+           
+            Console.WriteLine($"\n{name} didn't persuade the guard enough causing their sanity to decrease.\n" +
+                    $"It also seems like {name} need get their ID, but where?");
                 Console.ReadKey();
-                sanity -= 15;
+                
                 Entrance();
 
 
@@ -509,12 +489,13 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                         "a crucial path towards Adamson University.\n" +
                         "However, an imposing security guard stands at the gate, checking IDs.");
                     Console.WriteLine("\nGuard: Hold on! You are wearing an incomplete uniform, where is your ID?");
-                    Console.WriteLine($"\n{name}: I'm sorry, I don't have it");
+                    Console.WriteLine($"\n{name}: I'm sorry, I don't have it.");
                     Console.WriteLine("\nGuard: Then you cannot enter. Rules are rules.");
+                Console.WriteLine("\nPress any key...");
 
 
 
-                    if (sane == false)
+                if (sane == false)
                     {
 
                         Console.ReadKey();
@@ -560,7 +541,8 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
 
                     else if (choice == "persuade")
                     {
-                        Persuade();
+                    sanity -= 15;
+                    Persuade();
                     }
 
                     else
@@ -603,6 +585,8 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                     else if (choice == "give")
                     {
                         Console.WriteLine("\nGuard: This matches the one on the system. You may go.");
+                    Console.WriteLine("\nPress any key...");
+                         Console.ReadKey();
                         moves++;
                         Walkway2();
                     }
@@ -643,10 +627,10 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
 
 
                         case "A":
-                            Console.WriteLine("The area you chose is restricted. A move is added.");
-
-                             moves+=2;
-                            Observe();
+                        Console.WriteLine("The area you chose is restricted. 2 moves were added.");
+                        Console.ReadKey();
+                        moves += 2;
+                        Observe();
                             break;
                         case "S":
                             moves++;
@@ -880,7 +864,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: Ayala Blvd." +
+                Console.WriteLine($"Location: Ayala Blvd. 1" +
                             $"\nSanity: {sanity}%\n" +
                             $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -927,11 +911,11 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                     Console.Clear();
                     sanity += 5;
                     CheckSanity();
-                    Console.WriteLine($"Location: Ayala Blvd.\n" +
+                    Console.WriteLine($"Location: Ayala Blvd. 2\n" +
                                 $"Sanity: {sanity}%\n" +
                                 $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
-                    Console.WriteLine($"\nThe sight of blue building makes {name} happy. A percentage of your sanity came back.");
+                    Console.WriteLine($"\nThe sight of blue building makes {name} happy. A percentage of their sanity came back.");
                     Console.WriteLine($"\nWhat do you want {name} to do?");
                     Console.WriteLine("\n[W] Go forward\n[A] Go left\n[S] Go backward\n[D] Go right");
                     Console.Write("\n> ");
@@ -957,9 +941,8 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
 
                             break;
                         case "D":
-                            Console.WriteLine("The area you chose is restricted. A move is added.");
-                            Console.ReadKey();
-                             moves += 2;
+                        Wall();
+                        ayala = true;
                             Ayala2();
                             break;
                         default:
@@ -978,7 +961,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 {
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: Ayala Blvd.\n" +
+                    Console.WriteLine($"Location: Ayala Blvd. 2\n" +
                                 $"Sanity: {sanity}%\n" +
                                 $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
@@ -1011,8 +994,9 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
 
                             break;
                         case "D":
-                            Wall();
-                            Ayala2();
+                        Wall();
+                        ayala = true;
+                        Ayala2();
                             break;
                         default:
                             Console.WriteLine("Invalid option. Try again.");
@@ -1033,7 +1017,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 {
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: Ayala Blvd.\n" +
+                    Console.WriteLine($"Location: Ayala Blvd. 3\n" +
                         $"Sanity: {sanity}%\n" +
                         $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
@@ -1069,9 +1053,10 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
 
                             break;
                         case "D":
-                            moves++;
-                            Console.WriteLine($"{name} just trespassed! A move is added. Try again.");
-                            Ayala3();
+                        Console.WriteLine("The area you chose is restricted. 2 moves were added.");
+                        Console.ReadKey();
+                        moves += 2;
+                        Ayala3();
                             break;
                         default:
                             Console.WriteLine("Invalid option. Try again.");
@@ -1086,7 +1071,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 {
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: Ayala Blvd.\n" +
+                    Console.WriteLine($"Location: Ayala Blvd. 3\n" +
                         $"Sanity: {sanity}%\n" +
                         $"Number of moves: {moves}");
 
@@ -1116,8 +1101,10 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
 
                             break;
                         case "D":
-                            moves++;
-                            Console.WriteLine($"{name} just trespassed! A move is added. Try again.");
+                        Console.WriteLine("The area you chose is restricted. 2 moves were added.");
+                        Console.ReadKey();
+                        moves += 2;
+                        Ayala3();
                             break;
                         default:
                             Console.WriteLine("Invalid option. Try again.");
@@ -1134,7 +1121,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: Walkway\n" +
+                Console.WriteLine($"Location: Walkway 1\n" +
                      $"Sanity: {sanity}%\n" +
                      $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -1151,20 +1138,20 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 {
                     case "W":
                         Wall();
-                        Console.ReadKey();
+                   
                         moves++;
                         Walkway1();
 
                         break;
                     case "A":
                         Wall();
-                        Console.ReadKey();
+                   
                         moves++;
                         Walkway1();
                         break;
                     case "S":
                         Wall();
-                        Console.ReadKey();
+                       
                         moves++;
                         Walkway1();
 
@@ -1187,7 +1174,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: Walkway\n" +
+                Console.WriteLine($"Location: Walkway 2\n" +
                      $"Sanity: {sanity}%\n" +
                      $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -1237,7 +1224,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: Highway\n" +
+                Console.WriteLine($"Location: Highway 1\n" +
                      $"Sanity: {sanity}%\n" +
                      $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -1289,7 +1276,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
 
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: Highway\n" +
+                Console.WriteLine($"Location: Highway 2\n" +
                        $"Sanity: {sanity}%\n" +
                        $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -1302,10 +1289,9 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 switch (choice)
                 {
                     case "W":
-                        Console.WriteLine("The area you chose is restricted. A move is added.");
-                        Console.ReadKey();
-
-                         moves += 2;
+                    Console.WriteLine("The area you chose is restricted. 2 moves were added.");
+                    Console.ReadKey();
+                    moves += 2;
 
                     Highway2();
                         break;
@@ -1342,7 +1328,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 {
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: Highway\n" +
+                    Console.WriteLine($"Location: Highway 3\n" +
                            $"Sanity: {sanity}%\n" +
                            $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
@@ -1354,7 +1340,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                     Console.ReadKey();
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: Highway\n" +
+                    Console.WriteLine($"Location: Highway 3\n" +
                            $"Sanity: {sanity}%\n" +
                            $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
@@ -1371,7 +1357,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 {
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: Highway\n" +
+                    Console.WriteLine($"Location: Highway 3\n" +
                                      $"Sanity: {sanity}%\n" +
                                      $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
@@ -1414,13 +1400,13 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: Highway\n" +
+                Console.WriteLine($"Location: Highway 4\n" +
                     $"Sanity: {sanity}%\n" +
                     $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
                 Console.WriteLine($"\n{name} is standing beside the road of the highway.");
                 Console.WriteLine($"\nWhat do you want {name} to do?");
-                Console.WriteLine($"\n[W] Cross the highway\n[A] Go left\n");
+                Console.WriteLine($"\n[W] Cross the highway\n[A] Go left\n[S] Go backward\n[D] Go right\n");
                 Console.Write("\n> ");
                 choice = Console.ReadLine().ToUpper();
                 HandleChoice(choice);
@@ -1435,6 +1421,14 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                         moves++;
                         Highway3();
                         break;
+                     case "S":
+                        moves++;    
+                        ObservefrKalaw();
+                         break;  
+                    case "D":
+                         Wall();
+                    Highway4();
+                    break;
                     default:
                         Console.WriteLine("Invalid option. Try again.");
                         Console.ReadKey();
@@ -1448,7 +1442,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: Highway" +
+                Console.WriteLine($"Location: Highway 5" +
                       $"\nSanity: {sanity}%\n" +
                       $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -1493,7 +1487,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: United Nations" +
+                Console.WriteLine($"Location: United Nations 1" +
                      $"\nSanity: {sanity}%\n" +
                      $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -1511,8 +1505,8 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                         break;
                     case "A":
                         Wall();
-                        Console.ReadKey();
-                        moves++;
+                
+    
                         UN1();
                         break;
                     case "S":
@@ -1536,7 +1530,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                     Console.Clear();
 
                     CheckSanity();
-                    Console.WriteLine($"Location: United Nations" +
+                    Console.WriteLine($"Location: United Nations 2" +
                         $"\nSanity: {sanity}%\n" +
                         $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
@@ -1546,12 +1540,12 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                     Console.Clear();
                     sanity -= 20;
                     CheckSanity();
-                    Console.WriteLine($"Location: United Nations\n" +
+                    Console.WriteLine($"Location: United Nations 2\n" +
                         $"Sanity: {sanity}%\n" +
                         $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
                     Console.WriteLine($"\nWhen suddenly {name} stepped on a poop which ruined their shoes!\n" +
-                        $"Your sanity decreased.");
+                        $"Their sanity decreased.");
 
                     Console.WriteLine($"\nWhat do you want {name} to do?");
 
@@ -1600,7 +1594,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 {
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: United Nations" +
+                    Console.WriteLine($"Location: United Nations 2" +
                         $"\nSanity: {sanity}%\n" +
                         $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
@@ -1651,7 +1645,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: United Nation Extension\n" +
+                Console.WriteLine($"Location: United Nations Extension\n" +
                      $"Sanity: {sanity}%\n" +
                      $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -1671,7 +1665,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                         break;
                     case "A":
                         Wall();
-                        Console.ReadKey();
+          
 
                         UN1();
                         break;
@@ -1746,7 +1740,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 {
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: Rizal Park\n" +
+                    Console.WriteLine($"Location: Rizal Park 1\n" +
                                 $"Sanity: {sanity}%\n" +
                                 $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
@@ -1787,7 +1781,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 {
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: Rizal Park\n" +
+                    Console.WriteLine($"Location: Rizal Park 1\n" +
                                 $"Sanity: {sanity}%\n" +
                                 $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
@@ -1831,11 +1825,11 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 {
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: Rizal Park\n" +
+                    Console.WriteLine($"Location: Rizal Park 2\n" +
                                 $"Sanity: {sanity}%\n" +
                                 $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
-                    Console.WriteLine("\nAfter walking around in Rizal Park, you got lost. Your sanity decreased.");
+                    Console.WriteLine("\nAfter walking around in Rizal Park, you got lost. Their sanity decreased.");
                     sanity -= 20;
                     Console.WriteLine($"\n{name}: Oh no, I don't know where I am");
                     Console.WriteLine($"\n???: Hello! Are you lost?");
@@ -1884,7 +1878,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
 
                     Console.Clear();
                     CheckSanity();
-                    Console.WriteLine($"Location: Rizal Park\n" +
+                    Console.WriteLine($"Location: Rizal Park 2\n" +
                                 $"Sanity: {sanity}%\n" +
                                 $"Number of moves: {moves}");
                     Console.WriteLine("\n------------------------------\n");
@@ -1920,7 +1914,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             {
                 Console.Clear();
                 CheckSanity();
-                Console.WriteLine($"Location: Rizal Park\n" +
+                Console.WriteLine($"Location: Rizal Park 3\n" +
                             $"Sanity: {sanity}%\n" +
                             $"Number of moves: {moves}");
                 Console.WriteLine("\n------------------------------\n");
@@ -1992,16 +1986,15 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                     await Task.Delay(1000);
                     Effect($"\n\n{name}: I arrive just in the nick of time.");
                     await Task.Delay(1000);
-                    Effect($"\n\n{name} walked past the gates and into the university, half running up the stairn" +
+                    Effect($"\n\n{name} walked past the gates and into the university, half running up the stairs " +
                         $"and arriving at their class.");
                     await Task.Delay(1000);
                     Effect($"\n\nTheir classmates greeted them, and {name} sat down just in time as \n" +
-                        $"the bell rang and, their professor entering the room with papers in their hand.");
+                        $"the bell rang, and their professor entering the room with papers in their hand.");
                     await Task.Delay(1000);
                     Effect("\n\nProf: Good morning everyone! Let's start the exam.\n");
                     await Task.Delay(1500);
-                    Console.ReadKey();
-
+          
                     Console.Clear();
                     CheckSanity();
                     Console.WriteLine($"Location: Adamson" +
@@ -2043,9 +2036,9 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                     Effect("\n\nThey opened the door and were immediately met with their professor's frowning face.");
                     await Task.Delay(1000);
                     Effect("\n\nProf: You're late. The exam has already started, and I'm afraid I cannot let you\n" +
-                        "take it in anymore.\n");
+                        "take it anymore.\n");
                     await Task.Delay(1000);
-                    Effect($"\nThe professor's words hit {name}'s heart like a bullet, and they were filled with despair.\n" +
+                    Effect($"\n\nThe professor's words hit {name}'s heart like a bullet, and they were filled with despair.\n" +
                      $"Their hard work and scholarship went down the drain.\n");
                     await Task.Delay(1500);
 
@@ -2080,7 +2073,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
 
             static void Wall()
             {
-                Console.WriteLine("You cannot enter the premises. A move is added");
+                Console.WriteLine($"{name} cannot enter the premises. A move is added.");
                 Console.ReadKey();
                 sanity -= 7;
                 moves++;
@@ -2138,7 +2131,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 Effect("\n\nSir Paul: Ok guys, before we start our final exam, a few things lang. \n" +
                     "Let's take our attendance. Abesamis-");
                 Task.Delay(1000);
-                Effect($"\n\n{name} opened the door in hurry, interrupting the attendance.");
+                Effect($"\n\n{name} opened the door in a hurry, interrupting the attendance.");
                 Task.Delay(1000);
                 Effect("\n\nClassmate: Oh, you just arrived in time. We thought you were going to be late.");
                 Effect("\n\nSir Paul: *clapping* Congratulations! You're right in time. I just started the attendance.");
@@ -2201,27 +2194,27 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
             {
                 if (sanity > 80 && sanity <= 100)
                 {
-                    Console.WriteLine("Your sanity % is: Excellent \n");
+                    Console.WriteLine($"{name}'s sanity % is: Excellent \n");
                 }
 
                 else if (sanity > 65 && sanity <= 80)
                 {
-                    Console.WriteLine("Your sanity % is: Satisfactory\n");
+                    Console.WriteLine($"{name}'s sanity % is: Satisfactory\n");
                 }
 
                 else if (sanity > 50 && sanity <= 65)
                 {
-                    Console.WriteLine("Your sanity % is: Fair\n");
+                    Console.WriteLine($"{name}'s sanity % is: Fair\n");
                 }
 
                 else if (sanity > 30 && sanity <= 50)
                 {
-                    Console.WriteLine("Your sanity % is: Poor\n");
+                    Console.WriteLine($"{name}'s sanity % is: Poor\n");
                 }
 
                 else if (sanity >= 20 && sanity <= 30)
                 {
-                    Console.WriteLine("Your sanity % is: Critical\n");
+                    Console.WriteLine($"{name}'s sanity % is: Critical\n");
                 }
 
 
@@ -2229,7 +2222,7 @@ namespace KLASMEYT___FAR_FROM_SCHOOL
                 else if (sanity >= 0 && sanity < 20)
                 {
                     Console.Clear();
-                    Console.WriteLine("Your sanity % is Severe\n");
+                    Console.WriteLine($"{name}'s sanity % is Severe\n");
                     Console.WriteLine($"Location: Adamson" +
                                $"\nSanity: {sanity}%\n" +
                                $"Number of moves: {moves}");
